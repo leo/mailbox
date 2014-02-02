@@ -9,6 +9,8 @@ Die Sache ist folgende: Jeder Benutzer, der ein Mail-Programm auf seinem PC/Mac 
 
 Ich dachte mir: Warum macht man das denn nicht viel einfacher, und vor allem angenehmer für die Nutzer? Also hab ich mir ein jQuery-Plugin namens "mailbox" (Der Name sollte kurz und prägnant sein) geschrieben, welches bei Klick auf einen mailto-Link ein schniekes Kontaktformular bereitstellt.
 
+Die Idee zum Aussehen von <b>mailbox</b> kam übrigends von <a target="_blank" href="https://balloon.io/">Balloon.io</a>.
+
 
 ### Installation
 
