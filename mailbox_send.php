@@ -1,5 +1,10 @@
 <?php
 
+// Mailbox v0.0.1
+// Copyright 2014 Leonard Lamprecht - https://github.com/lmprht/mailbox
+// license: http://opensource.org/licenses/mit-license.php
+
+
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 	
 	$to = filter_var($_POST['to'], FILTER_SANITIZE_STRING);
