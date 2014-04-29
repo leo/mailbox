@@ -1,45 +1,37 @@
 /*!
-	Mailbox v0.0.1
-	Copyright 2014 Leonard Lamprecht - https://github.com/lmprht/mailbox
+	Mailbox v0.0.2
+	Copyright 2014 Leonard Lamprecht - https://github.com/leo/mailbox
 	license: http://opensource.org/licenses/mit-license.php
 */
 
 (function ($) {
 
-    $.fn.mailbox = function (settings) {
+	$.fn.mailbox = function (settings) {
 
-        var config = {
-            'send_text': 'Send message',
-            'success_text': 'Your message has been sent successfully!',
-            'label': { 
-                'name': 'name',
-                'email': 'e-mail',
-                'subject': 'subject',
-                'message': 'message'
-            },
+		var config = {
+			'send_text': 'Send message',
+			'success_text': 'Your message has been sent successfully!',
+			'label': { 
+				'name': 'name',
+				'email': 'e-mail',
+				'subject': 'subject',
+				'message': 'message'
+			},
 			'send_url': 'mb_send.php',
-            'complete': null
-        };
+			'complete': null
+		};
 
+		if (settings) {
+			$.extend(config, settings);
+		}
 
-        if (settings) {
-            $.extend(config, settings);
-        }
-		
-		if(config.send_url != 'mb_send.php') {
-			$.ajax({
-				url: config.send_url,
-				type: 'HEAD'
-			});
-		}	
+		var div = '#mailbox';
 
-        var div = '#mailbox';
+		function open(link_id, to, cc, bcc, subject, body) {
 
-        function open(link_id, to, cc, bcc, subject, body) {
-
-            if (typeof subject !== 'undefined' && subject !== false) {
-                $(div + ' input[name="subject"]').val(subject);
-            }
+			if (typeof subject !== 'undefined' && subject !== false) {
+				$(div + ' input[name="subject"]').val(subject);
+			}
 
             if (typeof body !== 'undefined' && body !== false) {
                 $(div + ' textarea').val(body);
@@ -101,11 +93,8 @@
 
         }
 
-
-
         $(this).each(function () {
 		
-
             var temp_sess_id = '';
             var temp_sess_id_salt = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -229,7 +218,6 @@
 
 				}
 
-
 				$(this).attr('data-msg-receiver', receiver);
 
 				if (typeof subject === 'undefined') {
@@ -295,7 +283,6 @@
 
         });
 
-
         $(document).ready(function () {
 
             $(div + ' .close').click(function () {
@@ -304,10 +291,9 @@
 
         });
 
-
         var msgbar = '<div id="mailbox" class="closed">' +
             '<span class="close">x</span>' +
-            '<form method="post">' +
+            '<form method="post" action="' + config.send_url + '">' +
             '<input type="hidden" name="sess_id">' +
             '<label for="name">' + config.label.name + '</label>' +
             '<input name="name" id="name" type="text" autocomplete="off" >' +
@@ -325,7 +311,6 @@
             '</div></div>';
 
         $('body').append(msgbar);
-
 
         $('#mailbox form').submit(function () {
 		
@@ -388,10 +373,12 @@
 				if (typeof bcc === 'undefined' || bcc == false) {
 					var bcc = false;
 				}
+				
+				var action_attr = $('#mailbox form').attr('action');
 
 				$.ajax({
 					type: 'POST',
-					url: config.send_url,
+					url: action_attr,
 					data: {
 						to: receiver,
 						cc: cc,
