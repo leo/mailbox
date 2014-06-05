@@ -1,5 +1,5 @@
 /*!
-	Mailbox v0.0.2
+	Mailbox v0.0.3
 	Copyright 2014 Leonard Lamprecht - https://github.com/leo/mailbox
 	license: http://opensource.org/licenses/mit-license.php
 */
