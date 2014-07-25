@@ -51,7 +51,7 @@
 
             $(div).animate({
                 right: '0'
-            }, 500, function () {
+            }, 300, function () {
                 $(div).attr('class', 'open');
             });
 
@@ -66,7 +66,7 @@
 
             $(div).animate({
                 right: mailbox_overflow
-            }, 500);
+            }, 300);
             $(div + ' .success').fadeOut(200);
 
             setTimeout(function () {
