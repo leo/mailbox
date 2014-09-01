@@ -1,6 +1,6 @@
 <?php
 
-// Mailbox v0.0.3
+// Mailbox 3
 // Copyright 2014 Leonard Lamprecht - https://github.com/lmprht/mailbox
 // license: http://opensource.org/licenses/mit-license.php
 
