@@ -1,7 +1,7 @@
-/*!
+/*
 	Mailbox 3
 	Copyright 2014 Leonard Lamprecht - https://github.com/leo/mailbox
-	license: http://opensource.org/licenses/mit-license.php
+	License: http://opensource.org/licenses/mit-license.php
 */
 
 (function ($) {
