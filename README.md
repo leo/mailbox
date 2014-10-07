@@ -1,6 +1,10 @@
 mailbox
 =======
 
+#### minified
+
+<a href="https://cdn.rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">herunterladen</a>
+
 #### Was und warum?
 
 Vor wenigen Wochen fing es an: Ich machte mir Gedanken zum Thema "mailto:"-Links. Die Dinger kennt jeder - und zwar nicht nur die web-affinen Entwickler, sondern auch jeder andere der Mal eine Webseite besucht hat, die kein Kontaktformular hat.
