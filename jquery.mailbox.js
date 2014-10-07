@@ -1,7 +1,7 @@
 /*
-	Mailbox 3
-	Copyright 2014 Leonard Lamprecht - https://github.com/leo/mailbox
-	License: http://opensource.org/licenses/mit-license.php
+	Mailbox 3 - Replacing mailto-links with contact-forms.
+	Copyright by Leonard Lamprecht - //github.com/leo/mailbox
+	License: http://git.io/c9_RLA
 */
 
 (function ($) {
