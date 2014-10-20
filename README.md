@@ -15,11 +15,6 @@ Ich dachte mir: Warum macht man das denn nicht viel einfacher, und vor allem ang
 
 Die Idee zum Aussehen von <b>mailbox</b> kam übrigends von <a target="_blank" href="https://balloon.io/">Balloon.io</a>.
 
-### Demo
-
-<a target="_blank" href="http://codepen.io/lmprht/full/vElaI">Click here</a>
-
-<b>Please notice that the codepen doesn't allow php-files, so you can try mailbox, but you can't sent messages with it.</b>
 
 ### Installation
 
