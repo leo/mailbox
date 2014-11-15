@@ -30,66 +30,66 @@
         
         var container = '#mailbox';
 
-		function is( state ) {
+	function is( state ) {
 			
-			if( $( container ).hasClass( state ) ) {
-				return true;
-			}
-			
-			return false;
-			
+		if( $( container ).hasClass( state ) ) {
+			return true;
 		}
+			
+		return false;
+			
+	}
     
         function open( attributes ) {
 			
-			$.each( attributes, function( attribute, value ) {
+		$.each( attributes, function( attribute, value ) {
 				
-				if( value != null ) {
+			if( value != null ) {
 					
-					$( container ).find( '[name="' + attribute + '"]' ).val( value );
-					$( container ).data( attribute, value );
+				$( container ).find( '[name="' + attribute + '"]' ).val( value );
+				$( container ).data( attribute, value );
 					
-				}
+			}
 				
-			});
+		});
 			
-			$( container ).attr( 'class', 'open' );
+		$( container ).attr( 'class', 'open' );
 	        
         }
         
         function close( state, callback ) {
 	        
-		    $( container ).attr( 'class' , 'closed' );
+		$( container ).attr( 'class' , 'closed' );
 		    
-		    setTimeout( function() {
+		setTimeout( function() {
 			    
-			    $.each( attributes, function( attribute, value ) {
+			$.each( attributes, function( attribute, value ) {
 				    
-					$( container ).removeData( attribute );
+				$( container ).removeData( attribute );
 					
-			    });
+			});
 		    
-			    $( container ).find( '.success' ).fadeOut( 200, function() {
+			$( container ).find( '.success' ).fadeOut( 200, function() {
 		            
-		            $.each( config.labels, function( index, title ) {
+				$.each( config.labels, function( index, title ) {
 			            
-			            $( container ).find( 'label[for="' + index + '"]' ).html( config.labels[title] );
-						$( container ).find( 'input[type="text"], textarea' ).removeAttr( 'disabled' ).val('');
-						$( container ).find( '.warning' ).removeClass( 'warning' );
+					$( container ).find( 'label[for="' + index + '"]' ).html( config.labels[title] );
+					$( container ).find( 'input[type="text"], textarea' ).removeAttr( 'disabled' ).val('');
+					$( container ).find( '.warning' ).removeClass( 'warning' );
 			            
-		            });
+				});
 		            
-					$( container ).find( 'form' ).fadeIn( 200, function() {
+				$( container ).find( 'form' ).fadeIn( 200, function() {
 						
-						if( state == 'reopen' && $.isFunction( callback ) ) {
-							callback();
-	        			}
+					if( state == 'reopen' && $.isFunction( callback ) ) {
+						callback();
+					}
 						
-					});
+				});
 					
-	            });
+			});
 	            
-	        }, 300 );
+		}, 300 );
 	
         }
         
@@ -104,28 +104,28 @@
 		        
 		        if( key !== 'body' ) {
 			        
-					content += '<input name="' + key +'" id="' + key +'" type="text" autocomplete="off" />';
+				content += '<input name="' + key +'" id="' + key +'" type="text" autocomplete="off" />';
 					
 		        } else {
 			        
-			        content += '<textarea name="body" id="' + key + '" rows="6" ></textarea>';
+				content += '<textarea name="body" id="' + key + '" rows="6" ></textarea>';
 			        
 		        } 
 		        
 	        });
 			
-			content += '<button class="send" name="submit" type="submit">' + config.send + '</button>';
-			content += '</form><div class="success"><span>&#x2713;</span><p>' + config.success + '</p></div></div>';
+		content += '<button class="send" name="submit" type="submit">' + config.send + '</button>';
+		content += '</form><div class="success"><span>&#x2713;</span><p>' + config.success + '</p></div></div>';
 			
-			return content;
+		return content;
 	        
         }
         
         $( 'body' ).append( jar() );
         
         $( container ).find( '.close' ).click(function() {
-			close();
-		});
+		close();
+	});
         
         $( this ).click(function( event ) {
 	        
@@ -167,7 +167,7 @@
 		    
 	        } else {
 		        
-				attributes['to'] = href.split( 'mailto:' )[1];
+			attributes['to'] = href.split( 'mailto:' )[1];
 				
 	        }
 	        
@@ -223,7 +223,7 @@
 	        
 	        $.each( config.labels, function( key ) {
 		        
-			    attributes[key] = $( form ).find( '[name="' + key + '"]' ).val();
+			attributes[key] = $( form ).find( '[name="' + key + '"]' ).val();
 	
 	        });
 	        
@@ -241,7 +241,7 @@
 		        
 		        if( !value ) {
 			        
-					not_ok();
+				not_ok();
 					
 		        } else {
 			        
@@ -278,9 +278,9 @@
 						        
 						        $( container ).find( '.success' ).fadeIn( 200, function() {
 							        
-									if( $.isFunction( config.complete ) ) {
-										config.complete();
-									}
+								if( $.isFunction( config.complete ) ) {
+									config.complete();
+								}
 								        
 						        });
 						        
