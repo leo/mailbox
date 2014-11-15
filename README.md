@@ -3,7 +3,7 @@ mailbox
 
 #### minified
 
-<a href="https://cdn.rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">herunterladen</a>
+<a href="https://rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">herunterladen</a>
 
 #### Was und warum?
 
