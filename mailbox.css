@@ -1,7 +1,6 @@
 /*
-	Mailbox 3 - Replacing mailto-links with contact-forms.
-	Copyright by Leonard Lamprecht - //github.com/leo/mailbox
-	License: http://git.io/c9_RLA
+	Mailbox 4 - A contact-form for the new web.
+	Made by Leonard Lamprecht - //github.com/leo/mailbox
 */
 
 html, body {
@@ -9,17 +8,14 @@ html, body {
 	margin: 0;
 }
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,600,700,800);
-
 #mailbox {
 	position: fixed;
 	background: #fff;
 	height: 100%;
 	width: 300px;
-	right: -300px;
 	top: 0;
 	padding: 0 30px 0 30px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'arial', sans-serif;
 	font-size: 14px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -27,6 +23,18 @@ html, body {
 	overflow: hidden;
 	z-index: 99999;
 	border-left: 2px solid #F1F1F2;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+}
+
+#mailbox.closed {
+	right: -300px;
+}
+
+#mailbox.open {
+	right: 0;
 }
 
 #mailbox label {
@@ -64,6 +72,10 @@ html, body {
 
 #mailbox label.warning {
 	color: #ed8484;
+}
+
+#mailbox label.warning:after {
+	content: " [!]";
 }
 
 #mailbox .send {
@@ -112,7 +124,7 @@ html, body {
 
 #mailbox .success p {
 	margin-top: 30px;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 #mailbox span.close {
@@ -127,16 +139,9 @@ html, body {
 	display: inline-block;
 	width: 160px;
 	height: 160px;
-	border-radius: 170px;
-	background: #00b7ea;
-	background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
-	background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
-	background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
-	background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
-	background: linear-gradient(to bottom, #00b7ea 0%,#009ec3 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
-	border: 10px solid #f7f7f7;
-	color: #fff;
+	border-radius: 100%;
+	background: #f7f7f7;
+	color: #202020;
 	font-size: 110px;
+	line-height: 160px;
 }
