@@ -29,6 +29,16 @@
 		}
 
 		var container = '#mailbox';
+		
+		attributes = {
+
+			'to': null,
+			'subject': null,
+			'body': null,
+			'cc': null,
+			'bcc': null
+
+		};
 
 		function is( state ) {
 
@@ -127,16 +137,12 @@
 		$( this ).find( 'a[href^="mailto:"]' ).click(function( event ) {
 
 			var href = $( this ).attr( 'href' );
-
-			attributes = {
-
-				'to': null,
-				'subject': null,
-				'body': null,
-				'cc': null,
-				'bcc': null
-
-			};
+			
+			$.each( attributes, function( key, value ) {
+				
+				attributes[key] = null;
+				
+			});
 
 			if( href.indexOf( '?' ) > -1 ) {
 
