@@ -20,7 +20,6 @@ After downloading and including the scripts in your site, you need to load them 
 
 **Important:** Please make sure that you've either placed the PHP-script in the same directory as the JS-script or set the right path to the file in the configuration.
 
----
 
 After loading all scripts on your site, just initialize mailbox and you're finished! :)
 
@@ -29,6 +28,7 @@ $( document ).mailbox();
 ```
 
 Please note: 'document' stands for an object that contains mailto-links (you can simply replace it with a nother object, e.g. '.container').
+
 
 ### configuration
 
