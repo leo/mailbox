@@ -54,3 +54,7 @@ $( document ).mailbox({
 });
 
 ```
+
+I need to thank the guys from shipp.co for creating such a beatiful project (<a href="https://balloon.io" target="_blank">balloon.io</a>). It helped me to shape the looking of mailbox to something great.
+
+License: <a href="http://www.wtfpl.net/"><img src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png" width="80" height="15" alt="WTFPL" /></a>
