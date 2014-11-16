@@ -132,7 +132,7 @@
 		}
 
 		$( 'body' ).append( jar() );
-		$( container ).find( '.close' ).click( close() );
+		$( container ).find( '.close' ).click( close );
 
 		$( this ).find( 'a[href^="mailto:"]' ).click(function( event ) {
 
