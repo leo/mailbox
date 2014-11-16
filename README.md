@@ -1,7 +1,7 @@
 mailbox
 =======
 
-### usage (<a href="http://jsfiddle.net/leo/k1rusqqq/3/embedded/result/" target="_blank">demo</a>)
+### usage (<a href="http://jsfiddle.net/leo/k1rusqqq/embedded/result/" target="_blank">demo</a>)
 
 To use beautiful contact forms in your project, you don't need to do anything else than to just include all files and initialize the main-script. You can download the minified versions from the lower links.
 
