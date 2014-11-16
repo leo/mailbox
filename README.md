@@ -1,24 +1,16 @@
 mailbox
 =======
 
-#### minified
+### usage
 
-<a href="https://rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">herunterladen</a>
+To use beautiful contact forms in your project, you don't need to do anything else than to just include all files and initialize the main-script. You can download the minified versions from the lower links.
 
-#### Was und warum?
+**Download:**
+<a href="https://rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">JS (minified)</a>,
+<a href="https://rawgit.com/leo/mailbox/master/mailbox.min.css">CSS (minified)</a>,
+<a href="https://rawgit.com/leo/mailbox/master/mailbox.php">PHP</a>.
 
-Vor wenigen Wochen fing es an: Ich machte mir Gedanken zum Thema "mailto:"-Links. Die Dinger kennt jeder - und zwar nicht nur die web-affinen Entwickler, sondern auch jeder andere der Mal eine Webseite besucht hat, die kein Kontaktformular hat.
-
-Die Sache ist folgende: Jeder Benutzer, der ein Mail-Programm auf seinem PC/Mac hat, wird mit jedes mal nach dem Klick auf einen mailto-Link mit dem Ladevorgang des jeweiligen Programms belästigt. Nur um eine kleine Nachricht zu senden. Selbst wenn man so viel Grips hat und den entsprechenden Eventhandler im eigenen Browser anpasst, bleibt einem neben dem Mail-Programm nur noch das automatische Öffnen eines online-Webmailers.
-
-Ich dachte mir: Warum macht man das denn nicht viel einfacher, und vor allem angenehmer für die Nutzer? Also hab ich mir ein jQuery-Plugin namens "mailbox" (Der Name sollte kurz und prägnant sein) geschrieben, welches bei Klick auf einen mailto-Link ein schniekes Kontaktformular bereitstellt.
-
-Die Idee zum Aussehen von <b>mailbox</b> kam übrigends von <a target="_blank" href="https://balloon.io/">Balloon.io</a>.
-
-
-### Installation
-
-Zunächst solltest du einfach die nötigen Datein in den head-Bereich deiner Seite einbinden:
+After downloading and including the scripts in your site, you need to load them - of course (preferably right before the 'body'-tag is closed):
 
 ```html
 <link rel="stylesheet" type="text/css" href="mailbox.css" />
@@ -26,37 +18,29 @@ Zunächst solltest du einfach die nötigen Datein in den head-Bereich deiner Sei
 <script src="jquery.mailbox.js"></script>
 ```
 
-Anschließen muss mailbox nurnoch ein Link zugewiesen werden:
+**Important:** Please make sure that you've either placed the PHP-script in the same directory as the JS-script or set the right path to the file in the configuration.
+
+### configuration
+
+Mailbox is designed to adapt to many kinds of possible requirements. To change the default settings, you simply need to pass the corresponding parameters through JS:
 
 ```js
-$(function(){
-    $('a[href^="mailto:"]').mailbox();
+
+$( document ).mailbox({
+
+	send: 'Send message',
+	success: 'Message sent successfully!',
+	
+	labels: {
+		name: 'Your name',
+		email: 'Your email',
+		subject: 'Subject',
+		body: 'Your message'
+	},
+	
+	script: 'mailbox.php',		// path to the PHP-script
+	complete: function() {}		// a function to be executed after a mail has been sent
+	
 });
+
 ```
-
-
-### Konfiguration
-
-Natürlich soll dir und den Besuchern deiner Website das Plugin auch gefallen. Aus diesem Grund hast du die Möglichkeit, einige Änderungen an mailbox vorzunehmen, ohne überhaupt den Sourcecode berühren zu müssen. Hierfür bietet sich die Konfiguration bestimmter Variablen an. Im folgenden sind alle möglichen Optionen sowie dazugehörige Beispiel-Texte aufgelistet.
-
-```js
-  $('a[href^="mailto:"]').mailbox({
-        send_text: 'Nachricht senden',    // Inhalt des Buttons, der zum senden der Nachricht dient
-		success_text: 'Deine Nachricht wurde erfolgreich versendet!',   // Text in der Sendungs-Bestätigung
-		label: {
-			name: 'Dein Name',    // Titel des Namen-Feldes
-			email: 'E-Mail',    // Titel des E-Mail-Feldes
-			subject: 'Betreff',   // Titel des Betreff-Feldes
-			message: 'Nachricht'    // Titel des Nachrichten-Feldes
-		},
-		send_url: 'mb_send.php',    // URL zum PHP-Script (zuständig fürs Versenden)
-		complete: function() { alert( 'Done!' ); }    // Diese Funktion wird nach erfolgreicher Sendung ausgeführt
-  });
-```
-
-
-#### Das beste an der ganzen Sache
-
-Es ist weder notwendig, eine Empfänger-Adresse im Script zu definieren, noch irgendwelche anderen wichtigen Dinge wie z.B. den Betreff oder die E-Mail-Adresse zu konfigurieren, an die eine Kopie/Blindkopie gehen soll. 
-
-Warum nicht? Ganz einfach: Wie wir ja alle wissen, können mailto-Links neben der E-Mail-Adresse des Empfängers auch noch andere Attribute wie z.B. den gewünschten Betreff, den Inhalt der Nachricht oder auch die Adresse enthalten, an die eine Kopie der Nachricht geschickt werden soll. Das bedeutet für die Entwickler: Neben dem Einbinden der Scripts müssen an den Mail-Links keine Änderungen vorgenommen werden. Somit ganz schön einfach, nicht war? ;-)
