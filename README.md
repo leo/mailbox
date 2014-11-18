@@ -6,9 +6,9 @@ mailbox
 To use beautiful contact forms in your project, you don't need to do anything else than to just include all files and initialize the main-script. You can download the minified versions from the lower links.
 
 **Download:**
-<a href="https://rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">JS (minified)</a>,
-<a href="https://rawgit.com/leo/mailbox/master/mailbox.min.css">CSS (minified)</a>,
-<a href="https://rawgit.com/leo/mailbox/master/mailbox.php">PHP</a>.
+<a href="https://rawgit.com/leo/mailbox/master/jquery.mailbox.min.js">JS (2.9 KB)</a>,
+<a href="https://rawgit.com/leo/mailbox/master/mailbox.min.css">CSS (1.8 KB)</a>,
+<a href="https://rawgit.com/leo/mailbox/master/mailbox.php">PHP (0.8 KB)</a>.
 
 After downloading and including the scripts in your site, you need to load them - of course (preferably right before the 'body'-tag is closed):
 
