@@ -29,6 +29,8 @@
 		}
 
 		var container = '#mailbox';
+		var transition = $( container ).css( 'transition-duration' );
+		var duration = transition.substr( 0, transition.indexOf( 's' ) ) * 1000;
 		
 		attributes = {
 
@@ -99,7 +101,7 @@
 
 				});
 
-			}, 300 );
+			}, duration );
 
 		}
 
