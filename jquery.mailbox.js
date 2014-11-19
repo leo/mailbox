@@ -29,8 +29,6 @@
 		}
 
 		var container = '#mailbox';
-		var transition = $( container ).css( 'transition-duration' );
-		var duration = transition.substr( 0, transition.indexOf( 's' ) ) * 1000;
 		
 		attributes = {
 
@@ -73,6 +71,8 @@
 
 			$( container ).attr( 'class' , 'closed' );
 
+			var transition = $( container ).css( 'transition-duration' );
+
 			setTimeout( function() {
 
 				$.each( attributes, function( attribute, value ) {
@@ -101,7 +101,7 @@
 
 				});
 
-			}, duration );
+			}, transition.replace( 's', '' ) * 1000 );
 
 		}
 
