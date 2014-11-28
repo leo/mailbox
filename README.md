@@ -48,8 +48,11 @@ $( document ).mailbox({
 		body: 'Your message'
 	},
 	
-	script: 'mailbox.php',		// path to the PHP-script
-	complete: function() {}		// a function to be executed after a mail has been sent
+	on: 'mailbox-on',		// A class that's added to links that are used to open mailbox
+	script: 'mailbox.php',		// Path to the PHP-script
+	
+	viewport: 992,			// The window width in px, from which the project should be visible
+	complete: function() {}		// A function to be executed after a mail has been sent
 	
 });
 
