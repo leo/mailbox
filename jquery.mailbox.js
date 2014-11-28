@@ -19,7 +19,10 @@
 				'body': 'message'
 			},
 
+			'on': 'mailbox-on',
 			'script': 'mailbox.php',
+
+			'viewport': 992,
 			'complete': null
 
 		};
@@ -29,7 +32,7 @@
 		}
 
 		var container = '#mailbox';
-		
+
 		attributes = {
 
 			'to': null,
@@ -50,7 +53,7 @@
 
 		}
 
-		function open( attributes ) {
+		function open( attributes, item ) {
 
 			$.each( attributes, function( attribute, value ) {
 
@@ -65,11 +68,15 @@
 
 			$( container ).attr( 'class', 'open' );
 
+			$( '.' + config.on ).removeClass( config.on );
+			$( item ).addClass( config.on );
+
 		}
 
 		function close( state, callback ) {
 
 			$( container ).attr( 'class' , 'closed' );
+			$( '.' + config.on ).removeClass( config.on );
 
 			var transition = $( container ).css( 'transition-duration' );
 
@@ -93,7 +100,7 @@
 
 					$( container ).find( 'form' ).fadeIn( 200, function() {
 
-						if( state == 'reopen' && $.isFunction( callback ) ) {
+						if( state == 1 && $.isFunction( callback ) ) {
 							callback();
 						}
 
@@ -105,7 +112,7 @@
 
 		}
 
-		function jar() {
+		function bag() {
 
 			var content = '<aside id="mailbox" class="closed"><span class="close">x</span>';
 			content += '<form method="post" action="' + config.script + '">';
@@ -133,18 +140,19 @@
 
 		}
 
-		$( 'body' ).append( jar() );
+		$( 'body' ).append( bag );
 		$( container ).find( '.close' ).click( close );
 
-		$( this ).find( 'a[href^="mailto:"]' ).click(function( event ) {
+		$( this ).find( 'a[href^="mailto:"]' ).click( function( event ) {
 
-			var href = $( this ).attr( 'href' );
-			
+			var link = $( this );
+			var href = $( link ).attr( 'href' );
+
 			$.each( attributes, function( key, value ) {
-				
+
 				attributes[key] = null;
-				
-			});
+
+			} );
 
 			if( href.indexOf( '?' ) > -1 ) {
 
@@ -176,42 +184,41 @@
 
 			}
 
-			var on_class = 'mailbox-on';
+			if( $( window ).width() > config.viewport ) {
 
-			if( is( 'closed' ) ) {
+				if( is( 'closed' ) ) {
 
-				open( attributes );
+					open( attributes, link );
 
-			} else if( is( 'open' ) ) {
+				} else if( is( 'open' ) ) {
 
-				if( !$( this ).hasClass( on_class ) ) {
+					if( !$( this ).hasClass( config.on ) ) {
 
-					$.each( attributes, function( identifier, value ) {
+						$.each( attributes, function( identifier, value ) {
 
-						if( value !== null && value !== $( container ).data( identifier ) ) {
+							if( value !== null && value !== $( container ).data( identifier ) ) {
 
-							close( 'reopen', function() {
-								open( attributes );
-							});
+								close( 1, function() {
+									open( attributes, link );
+								} );
 
-							return false;
+								return false;
 
-						}
+							}
 
-					});
+						});
 
-				} else {
+					} else {
 
-					close();
+						close();
+
+					}
 
 				}
 
+				event.preventDefault();
+
 			}
-
-			$( '.' + on_class ).removeClass( on_class );
-			$( this ).addClass( on_class );
-
-			event.preventDefault();
 
 		});
 
