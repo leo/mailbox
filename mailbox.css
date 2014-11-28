@@ -1,5 +1,5 @@
 /*
-	Mailbox 4 - A contact-form for the new web.
+	Mailbox 4.1.7 - A contact-form for the new web.
 	Made by Leonard Lamprecht - //github.com/leo/mailbox
 */
 
