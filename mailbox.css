@@ -27,6 +27,7 @@ html, body {
 	-o-transition: right 0.5s ease;
 	-moz-transition: right 0.5s ease;
 	-webkit-transition: right 0.5s ease;
+	-webkit-backface-visibility: hidden;
 }
 
 #mailbox.closed {
