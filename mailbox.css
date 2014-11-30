@@ -23,10 +23,10 @@ html, body {
 	overflow: hidden;
 	z-index: 99999;
 	border-left: 2px solid #F1F1F2;
-	transition: all 0.5s ease;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	transition: right 0.5s ease;
+	-o-transition: right 0.5s ease;
+	-moz-transition: right 0.5s ease;
+	-webkit-transition: right 0.5s ease;
 }
 
 #mailbox.closed {
